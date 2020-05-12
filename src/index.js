@@ -9,9 +9,9 @@ import App from "./app/App";
 // LogRocket.init('5gcqx8/chara');
 // https://app.logrocket.com/5gcqx8/chara/
 
-import config from "./config";
+import configLoader from "./config/loader";
 
-config.load().then(result => {
+configLoader().then(result => {
 
     ReactDOM.render(
         <App/>,

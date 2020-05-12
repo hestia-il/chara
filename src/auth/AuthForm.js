@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import {connect} from "react-redux";
 import {login, register} from "./actions";
 import {getAuthData} from "./selectors";
-import restApi from "./restApi";
+import rest from "../rest";
 import {Spinner} from "react-bootstrap";
 //
 //
@@ -56,7 +56,7 @@ function AuthForm({dispatch, history, location, authMode, loggedIn}) {
             //
             // register request
             //
-            let result = await restApi.register(values);
+            let result = await rest.register(values);
             actions.setSubmitting(false);
             if (result.error) {
                 actions.setFieldError('general', result.error.message);
@@ -69,7 +69,7 @@ function AuthForm({dispatch, history, location, authMode, loggedIn}) {
             //
             // login request
             //
-            let result = await restApi.login(values);
+            let result = await rest.login(values);
             actions.setSubmitting(false);
             if (result.error) {
                 actions.setFieldError('general', result.error.message);

@@ -1,21 +1,13 @@
-import {getConfig} from "../rest";
 
-const config = {
-    apiUrl: process.env.REACT_APP_API_URL,
-    apiConfigRoute: process.env.REACT_APP_API_CONFIG_ROUTE,
-};
+const config = Object.create(null);
 
 export default {
     /**
      *
-     * @returns {Promise<boolean>}
+     * @param data
      */
-    load: async () => {
-        // console.log(config)
-        let result = await getConfig(config.apiUrl + config.apiConfigRoute);
-        console.log("load config result", result);
-        config.tsLoaded = result.ts;
-        return true;
+    loadData: data => {
+        Object.assign(config, data)
     },
     /**
      *
